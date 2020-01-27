@@ -1,0 +1,114 @@
+@mixin basePadding($padding: 10px) {
+  padding: $padding;
+}
+
+$gray: #D8D8D8;
+$accent: #57C3E9;
+$dark: #666;
+
+h1,h2,h3,h4,h5,h6,body {
+  line-height: 1.57;
+    letter-spacing: 0.15em;
+    font-size: 16px;
+    color: $dark;
+    font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+    margin: 0;
+}
+
+body {
+  display: flex;
+}
+
+.btn {
+  @include basePadding(8px 20px);
+  font-size: 14px;
+  border: 2px solid $accent;
+  color: $accent;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
+  &:hover {
+    border-color: lighten($accent, 15%);
+    color: lighten($accent, 15%);
+  }
+}
+
+header.header {
+  @include basePadding;
+  border-bottom: 1px solid $gray;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  .header__bar.row {
+    top: 0;
+    height: auto;
+    // position: relative;
+    h1.grid-6 {
+      font-size: 20px;
+      line-height: 41px;
+      float: left;
+      margin: 0;
+      a {
+        display: block;
+      }
+    }
+    div.grid-6 {
+      float: right;
+      text-align: right;
+      a.post {
+        @extend .btn;
+        width: 120px;
+        display: inline-left;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+    }
+  }
+  .user_nav {
+    position: relative;
+    height: 100px;
+    right: 0;
+    span {
+      top: 5px;
+      display: block;
+      float: left;
+      margin-left: 30px;
+      width: 150px;
+      height: 50px;
+      font-size: 1em;
+      cursor: pointer;
+      position: relative;
+      &:after {
+        content: '▼';
+        font-size: .7em;
+        margin-left: -4px;
+      }
+      &:hover ul {
+        color: $accent;
+        display: block;
+      }
+    }
+    ul {
+      display: none;
+      position: absolute;
+      top: 46px;
+      right: 0;
+      border-left: 1px solid #d8d8d8;
+      border-right: 1px solid #d8d8d8;
+      box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+      li {
+        background-color: #f0f0f0;
+        a {
+          display: block;
+          padding: 10px 20px;
+          text-align: left;
+          border-bottom: 1px solid #d8d8d8;
+        }
+      }
+    }
+  }
+}
