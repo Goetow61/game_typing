@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'typing#index'
+  devise_for :users
+  root to: 'question#index'
+  resources :qfile, only: [:index, :new, :create]
   # index
   # start
   # countdown

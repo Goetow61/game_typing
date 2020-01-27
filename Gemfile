@@ -69,6 +69,7 @@ gem 'devise'
 gem 'rspec-rails'
 gem 'pry-rails'
 gem 'fog-aws'
+gem 'carrierwave'
 
 group :develogpment, :test do
   gem 'rspec-rails'

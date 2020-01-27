@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title GameTyping
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header
+      .header__bar.row
+        %h1.grid-6
+          %a{ href:'/' }
+            英字タイピング
+        - if user_signed_in?
+          .user_nav.grid-6
+            %span
+              = current_user.nickname
+              %ul.user__info
+                %li
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .grid-6
+            = link_to "ログイン", new_user_session_path, class: 'post'
+            = link_to "新規登録", new_user_registration_path, class: 'post'
+    = yield
