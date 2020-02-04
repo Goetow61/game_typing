@@ -1,0 +1,110 @@
+@mixin row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 660px;
+}
+
+.header {
+  padding: 10px;
+  border-bottom: 1px solid #D8D8D8;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  &__bar {
+    @include row;
+    display: flex;
+    justify-content: space-between; 
+    .title {
+      font-size: 30px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        line-height: 41px;
+      }
+    }
+    .user_nav {
+      height: auto;
+      position: relative;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      .nickname {
+        height: 30px;
+        line-height: 30px;
+        max-width: 300px;
+        text-align: right;
+        cursor: pointer;
+        letter-spacing: .3em;
+        &::after {
+          content: '▼';
+          margin-left: 5px;
+          font-size: .7em;
+          margin-left: -4px;
+        }
+        &:hover + ul{
+          display: block;
+        }
+      }
+      ul.user__info {
+        background-color: #f0f0f0;
+        color: #57C3E9;
+        cursor: pointer;
+        display: none;
+        box-sizing: border-box;
+        position: absolute;
+        top: 46px;
+        margin: 0;
+        right: 0;
+        padding: 0;
+        text-align: left;
+        border-bottom: 1px solid #d8d8d8;
+        box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+        list-style: none;
+        &:hover {
+          display: block;
+        }
+        li {
+          a {
+            padding: 10px 20px;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #d8d8d8;
+          }
+        }
+      }
+    }
+    .newuser {
+      display: flex;
+      align-items: center;
+      a {
+
+      }
+    }
+  }
+}
+
+a.btn {
+  height: 21px;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 18px;
+  border: 2px solid #57C3E9;
+  color: #57C3E9;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
+  &:hover {
+    border-color: #9bdbf2;
+    color: #9bdbf2;
+  }
+}

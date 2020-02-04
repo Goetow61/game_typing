@@ -1,11 +1,15 @@
-.contents.row
+.contents
   %h2 Sign up
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .field
+      = f.label :nickname
+      %br/
+      = f.text_field :nickname, autofocus: true, autocomplete: 'nickname'
+    .field
       = f.label :email
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autocomplete: "email"
     .field
       = f.label :password
       - if @minimum_password_length

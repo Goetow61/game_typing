@@ -1,36 +1,28 @@
-.content {
-  margin-top: 15%;
-  margin-bottom: 15%;
-  max-width: 660px;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  .top-area {
+.top-area {
 
-  }
-  .template-area {
-    margin-top: 20px;
-    .box {
-      .category {
-        height: 32px;
-        margin-top: 5px;
-        margin-bottom: 15px;
-        padding-left: 15px;
-        background-color: #CCFF99;
-        border-radius: 20px;
-        h2 {
-          line-height: 32px;
-        }
+}
+.template-area {
+  margin-top: 20px;
+  .box {
+    .category {
+      height: 32px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding-left: 15px;
+      background-color: #CCFF99;
+      border-radius: 20px;
+      h2 {
+        line-height: 32px;
       }
-      .quote-source {
-        a { 
-          text-decoration: none;
-        }
+    }
+    .quote-source {
+      a { 
+        text-decoration: none;
       }
-      .list-area {
-        li {
-          margin-top: 12px;
-        }
+    }
+    .list-area {
+      li {
+        margin-top: 12px;
       }
     }
   }
