@@ -1,0 +1,22 @@
+.flash {
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 1;
+  top: 83px;
+  position: relative;
+  animation: fadeIn 5s ease 0s 1 normal;
+  opacity: 0;
+  &__notice {
+    background-color: blue;
+  }
+  &__alert{
+    background-color: red;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  40% {opacity: 1;}
+  100% {opacity: 0;}
+}

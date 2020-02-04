@@ -1,5 +1,5 @@
 @import "font-awesome";
-// @import "./reset";
-@import "./style";
-@import "./setting";
+@import './normalize.scss';
+@import './modules/header.scss';
+@import './modules/flash';
 @import "./question/index";
