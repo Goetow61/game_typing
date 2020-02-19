@@ -1,3 +1,5 @@
 class Qfile < ApplicationRecord
-  mount_uploader :qfile, ImageUploader
+  belongs_to :user
+
+  mount_uploader :src, QfileUploader
 end

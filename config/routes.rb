@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'question#index'
+  root to: 'questions#index'
   # resources :question, only: [:index]
-  resources :qfile, only: [:index, :new, :create]
+  resources :questions, only: [:index, :new, :create]
+  resources :users, only: [:edit, :update]
   # index
   # start
   # countdown

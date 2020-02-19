@@ -1,0 +1,12 @@
+.content
+  = form_with(model: @qfile,url: questions_path, local: true) do |f|
+    .field
+      = f.text_field :title, placeholder: "問題のタイトル"
+    .field
+      = f.text_area :overview, placeholder: "問題の概要"
+    .field
+      = f.select :category, { '単語': 1, '文章': 2}
+    .field
+      = f.file_field :src
+    .actions
+      = f.submit
