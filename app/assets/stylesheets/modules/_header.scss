@@ -54,6 +54,7 @@
         }
       }
       ul.user__info {
+        white-space: nowrap;
         background-color: #f0f0f0;
         color: #57C3E9;
         cursor: pointer;
@@ -77,6 +78,9 @@
             display: block;
             text-decoration: none;
             border-bottom: 1px solid #d8d8d8;
+          }
+          &:hover {
+            display: block;
           }
         }
       }

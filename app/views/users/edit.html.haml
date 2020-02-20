@@ -1,0 +1,12 @@
+.content
+  %h2 Edit Account
+  = form_for(current_user) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :nickname
+      %br/
+      = f.text_field :nickname, autofocus: true, autocomplete: 'nickname'
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autocomplete: "email"

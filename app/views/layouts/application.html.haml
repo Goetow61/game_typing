@@ -22,7 +22,7 @@
               = current_user.nickname
             %ul.user__info
               %li
-                = link_to "ログアウト", destroy_user_session_path, method: :delete
+                = link_to "問題登録", new_question_path, method: :get
                 = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           .newuser

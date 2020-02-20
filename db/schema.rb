@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_125042) do
     t.integer "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "User_id", null: false
-    t.index ["User_id"], name: "index_qfiles_on_User_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_qfiles_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,5 +36,5 @@ ActiveRecord::Schema.define(version: 2020_01_27_125042) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "qfiles", "Users"
+  add_foreign_key "qfiles", "users"
 end
