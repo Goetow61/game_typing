@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_125042) do
     t.integer "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id_id"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_qfiles_on_user_id"
-    t.index ["user_id_id"], name: "index_qfiles_on_user_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
