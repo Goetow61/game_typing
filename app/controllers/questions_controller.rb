@@ -15,6 +15,10 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+  
   private
 
   def qfile_params
