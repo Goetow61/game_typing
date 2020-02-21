@@ -16,9 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
+    @qfile = Qfile.find(params[:id]) 
   end
-  
+
   private
 
   def qfile_params
