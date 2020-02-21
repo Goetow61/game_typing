@@ -2,7 +2,6 @@
   table {
     border-collapse: collapse;
     width: 660px;
-    background-color: lightyellow;
   }
   tr {
     line-height: 3em;
@@ -11,6 +10,7 @@
     padding-left: 1em;
   }
   table.list1 {
+    background-color: lightyellow;
     tr {
       border: 2px solid khaki;
     }
@@ -29,6 +29,5 @@
     line-height: 3em; 
     text-align: center;
     background-color: palegreen;
-    
   }
 }
