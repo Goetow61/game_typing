@@ -1,0 +1,23 @@
+.content
+  %table.list1
+    %tr
+      %td
+        = @qfile.category
+    %tr
+      %td
+        = @qfile.title
+    %tr
+      %td
+        = simple_format(@qfile.overview)
+  %table.list2
+    %tr
+      %td
+        = @qfile.user.nickname + ' さん が登録'
+    %tr
+      %td
+        = @qfile.created_at.to_s(:db) + ' に登録'
+    %tr
+      %td
+        = @qfile.updated_at.to_s(:db) + ' に更新'
+  .submit
+    = link_to 'この問題をタイピングする', "#{@qfile.id}/aaa"

@@ -1,20 +1,18 @@
 .content
   .top-area
-    英語の単語もしくはフレーズをタイピングしていくゲームです。
+    英語の単語もしくは文章をタイピングしていくゲームです。
     %br
     やりたい問題の部分をクリックしてください。
     %br
     %br
     日本語のタイピングは実装が難しいので実装していません。
     %br
-    -# 例文は、free licenseのものをググって引っ張ってきてます。
-    -# %br
     日本語訳はgoogle翻訳を使ってます。
   .template-area
     .box
       .category
         %h2
-          単語
+          英語-単語
       .quote-source
         %h3
           = link_to "http://www.newgeneralservicelist.org" do
@@ -23,27 +21,21 @@
       .list-area
         %ol
           %li
-            = link_to "#" do
-              abide - certification 200語
+            = link_to 'abide - certification 200語', "/questions/1", method: :get
           %li
-            = link_to "#" do
-              certify	- drill 200語
+            = link_to 'certify	- drill 200語', "/questions/2", method: :get
           %li
-            = link_to "#" do
-              drought	- indoor 200語
+            = link_to 'drought	- indoor 200語', "/questions/3", method: :get
           %li
-            = link_to "#" do
-              induction - painter 200語
+            = link_to 'induction - painter 200語', "/questions/4", method: :get
           %li
-            = link_to "#" do
-              pamphlet - satellite 200語
+            = link_to 'pamphlet - satellite 200語', "/questions/5", method: :get
           %li
-            = link_to "#" do
-              satisfactory - zoo 259語
+            = link_to 'satisfactory - zoo 259語', "/questions/6", method: :get
     .box
       .category
         %h2
-          文章
+          英語-文章
       .quote-source
         %h3
           = link_to "https://tatoeba.org" do
@@ -52,14 +44,10 @@
       .list-area
         %ol
           %li
-            = link_to "#" do
-              英語例文 200件 1
+            = link_to '英語例文 200件 1', "/questions/7", method: :get
           %li
-            = link_to "#" do
-              英語例文 200件 2
+            = link_to '英語例文 200件 2', "/questions/8", method: :get
           %li
-            = link_to "#" do
-              英語例文 200件 3
+            = link_to '英語例文 200件 3', "/questions/9", method: :get
           %li
-            = link_to "#" do
-              英語例文 200件 4
+            = link_to '英語例文 200件 4', "/questions/10", method: :get

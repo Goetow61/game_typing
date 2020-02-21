@@ -1,0 +1,33 @@
+.content {
+  table {
+    border-collapse: collapse;
+    width: 660px;
+  }
+  tr {
+    line-height: 3em;
+  }
+  td {
+    padding-left: 1em;
+  }
+  table.list1 {
+    background-color: lightyellow;
+    tr {
+      border: 2px solid khaki;
+    }
+  }
+  table.list2 {
+    margin-top: 2em;
+    background-color: honeydew;
+    tr {
+      border: 2px solid turquoise;
+    }
+  }
+  .submit {
+    margin-top: 2em;
+    border: 2px solid orange;
+    border-radius: 2em;
+    line-height: 3em; 
+    text-align: center;
+    background-color: palegreen;
+  }
+}
