@@ -1,7 +1,9 @@
-@import "font-awesome";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 @import './normalize.scss';
 @import './modules/header.scss';
 @import './modules/flash';
 @import "./question/index";
 @import './modules/devise';
 @import "./question/show";
+@import "./question/play";
