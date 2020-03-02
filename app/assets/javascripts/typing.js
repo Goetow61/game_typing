@@ -15,7 +15,6 @@ onPageLoad('questions#play', function() {
   var ele2 = document.getElementById("japanese_translation");
   var ele3 = document.getElementById("remaining_time");
   var ele4 = document.getElementById("wrong_cnt");
-  // var ele4 = document.getElementsByClassName("word3")[0].
 
   // escキー押下でリセット
   document.onkeydown = function(event2) {
@@ -41,13 +40,11 @@ onPageLoad('questions#play', function() {
         // 問題文を表示する
         gameSet();
       } else {
-        
         if (event.key) {
           gKey = event.key;
         } else if (event.which) {
           gKey = String.fromCharCode(event.which)
         }
-        
         if ( gTid!=undefined ) { judge(); }
       }
     }
@@ -127,16 +124,13 @@ onPageLoad('questions#play', function() {
   function ShowResult(dt) {
     ele4.innerHTML = ele3.innerHTML = ele2.innerHTML = "";
     ele4.parentElement.style.display = "none" ;
-
     ele1.innerHTML = '終了!!';
     var result = '<table><tr><td>間違えたキー数</td><td>' + gWrong_cnt + ' key</td></tr>';
     result += '<tr><td>正解キー数</td><td>' + gCorrect_cnt + ' key</td></tr>';
-    // debugger;
     result += '<tr><td>時間</td><td>' + Math.round(dt / 100) / 10 + ' s';
     result += '<tr><td>スピード</td><td>' + Math.round(gCorrect_cnt / dt * 10000) / 10 +' key/s</td></tr>';
     result += '</table>';
     ele2.innerHTML = result;
     ele3.innerHTML = 'スペースキーを押したら再スタート';
   }
-
 });
