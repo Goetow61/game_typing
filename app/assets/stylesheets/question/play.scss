@@ -21,7 +21,6 @@
       color: navy;
     }
     .word.word1 {
-      // white-space: pre;
       display: flex;
       line-height: 24px;
       i {
@@ -35,6 +34,9 @@
     .word.word3 {
       display: flex;
       line-height: 24px;
+    }
+    .word.word4 { 
+      display: none;
     }
   }
   .link-to-top {
