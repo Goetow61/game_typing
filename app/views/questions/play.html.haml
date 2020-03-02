@@ -1,0 +1,22 @@
+.content
+  .playboard
+    .title
+      = @qfile.title
+    -# 問題表示部分
+    .word.word1
+      %i.fas.fa-exclamation-circle
+      %p{ id: "question" }
+        タイピング中はキーボードを使います。
+    -# 日本語訳表示部分
+    .word.word2
+      %p{ id: "japanese_translation"}
+        スペースキーを押すとスタートします。
+    -# 残り時間、間違えたキーカウント
+    .word.word3
+      %i.fas.fa-asterisk
+      %p{ id: "remaining_time" }
+        ゲーム中や結果画面では、「ESCキー」を押すとすぐにタイピングをやり直すことができます。
+    .word.word4
+      %p{ id: "wrong_cnt" }
+  .link-to-top
+    = link_to 'トップへ戻る', "/"

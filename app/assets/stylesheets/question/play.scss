@@ -1,0 +1,50 @@
+.content {
+  .playboard {
+    overflow-wrap: normal;
+    padding: 20px;
+    background-color: rgba(127,255,212,0.4);
+    .title {
+      background-color: dimgray;
+      color: white;
+      padding: 16px;
+      margin-bottom: 30px;
+    }
+    i {
+      display: block;
+      font-size: 24px;
+    }
+    p {
+      margin: 0 0 0 10px;
+    }
+    .word {
+      padding: 16px;
+      color: navy;
+    }
+    .word.word1 {
+      display: flex;
+      line-height: 24px;
+      i {
+        background-color: red;
+        color: white;
+      }
+    }
+    .word.word2 {
+      color: red;
+    }
+    .word.word3 {
+      display: flex;
+      line-height: 24px;
+    }
+    .word.word4 { 
+      display: none;
+    }
+  }
+  .link-to-top {
+    color: navy;
+    text-align: right;
+    margin-top: 20px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
