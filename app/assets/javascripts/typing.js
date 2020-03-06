@@ -1,20 +1,44 @@
 onPageLoad('questions#play', function() {
+  var question_id = gon.question_id;
+  var gPhrase = gon.question;
+  // console.log(question_id);
+  // console.log(gPhrase[0]);
 
   // 問題文
-  var gPhrase = new Array("I see","That makes sense","Good for you",
-                        "May be/Probably","Are you kidding?");      
+  // var gPhrase = new Array(["I see","分かりました"],["That makes sense","それは理に適っています"],["Good for you","あなたに良い"],
+  //                       ["May be/Probably","かもしれない/多分"],["Are you kidding?","冗談ですよね？"]);      
+  // debugger
+  // var gPhrase = csv2Array(question_url);
   var gKey = '';              // 入力した文字
-  var gKeycode = '';          // 入力したキー
   var gMondai = "";           //問題の文字列を格納
   var gMondai_pointer=0;      //問題文の入力位置(何文字目か)
   var gWrong_cnt=0;           //間違ったキータイプの回数
   var gCorrect_cnt=0;         //正しいキータイプの回数
   var gTimeLimit,gTimeStart;  //制限時間用、開始時間用
   var gTid;                   //タイマー用(setinterval)
-  var ele1 = document.getElementById("question");
-  var ele2 = document.getElementById("japanese_translation");
-  var ele3 = document.getElementById("remaining_time");
-  var ele4 = document.getElementById("wrong_cnt");
+  var gEle1 = document.getElementById("question");
+  var gEle2 = document.getElementById("japanese_translation");
+  var gEle3 = document.getElementById("remaining_time");
+  var gEle4 = document.getElementById("wrong_cnt");
+
+  // 問題文をCSVから読み込む(https://gist.github.com/tigawa/8858345)
+  // function csv2Array(filePath) { //csvﾌｧｲﾙﾉ相対ﾊﾟｽor絶対ﾊﾟｽ
+  //   var csvData = new Array();
+  //   var data = new XMLHttpRequest();	
+  //   data.open("GET", filePath, false); //true:非同期,false:同期
+  //   data.send(null);
+  
+  //   var LF = String.fromCharCode(10); //改行ｺｰﾄﾞ
+  //   var lines = data.responseText.split(LF);  //1行ずつに区切って代入
+  //   for (var i = 0; i < lines.length;++i) {
+  //     // var cells = lines[i].split(",");
+  //     var cells = lines[i].split(String.fromCharCode(9)); //カンマではなく、タブ区切りにしている為、カラムでセルを分ける
+  //     // if( cells.length != 1 ) {
+  //       csvData.push(cells);
+  //     // }
+  //   }
+  //   return csvData;
+  // }
 
   // escキー押下でリセット
   document.onkeydown = function(event2) {
@@ -61,7 +85,7 @@ onPageLoad('questions#play', function() {
   function TimeDisplay() {
     var now = new Date();     // 現在時刻を取得する
     var dt = now.getTime() - gTimeStart;   // 経過時間計算(マイクロ秒で出てくる)
-    ele3.innerHTML = "残り" + Math.round( (gTimeLimit - dt) / 1000 ) + "秒";
+    gEle3.innerHTML = "残り" + Math.round( (gTimeLimit - dt) / 1000 ) + "秒";
 
     // 制限時間が終わったらやる処理
     if(dt > gTimeLimit) {    // ※3
@@ -79,7 +103,12 @@ onPageLoad('questions#play', function() {
     gMondai_pointer=0;
     
     //表示する問題文の作成
-    gMondai = gPhrase[ Math.floor( Math.random() * gPhrase.length ) ];
+    randomNum = Math.floor( Math.random() * gPhrase.length )
+    // gMondai = gPhrase[randomNum][0];
+    // japanese_translation = gPhrase[randomNum][1];
+    // gMondai = gPhrase[ Math.floor( Math.random() * gPhrase.length ) ];
+    gMondai = gPhrase[randomNum][0];
+    japanese_translation = gPhrase[randomNum][1];
 
     var str1 = '';
     for ( var i = 0 ; i < gMondai.length ; i++ ) {
@@ -90,12 +119,13 @@ onPageLoad('questions#play', function() {
     $('i').remove();
     
     // デフォ表示を消す
-    ele2.innerHTML = ele1.innerHTML = str1;
+    gEle1.innerHTML = str1;
+    gEle2.innerHTML = japanese_translation;
     // 問題が変わる度に表示が消されるのは変なので、最初に一度表示したら終わるまで表示したままにしておく
     if ( gWrong_cnt===0 && gCorrect_cnt===0 ) {
-      ele4.innerHTML = ele3.innerHTML = "";
+      gEle4.innerHTML = gEle3.innerHTML = "";
     }
-    ele4.parentElement.style.display = "block";
+    gEle4.parentElement.style.display = "block";
   }
 
   // タイピング正誤判定
@@ -116,21 +146,21 @@ onPageLoad('questions#play', function() {
       }
     } else {
       gWrong_cnt++;
-      ele4.innerHTML = "間違いタイプ回数" + gWrong_cnt + "回";
+      gEle4.innerHTML = "間違いタイプ回数" + gWrong_cnt + "回";
     }
   }
 
   //終了したらやること
   function ShowResult(dt) {
-    ele4.innerHTML = ele3.innerHTML = ele2.innerHTML = "";
-    ele4.parentElement.style.display = "none" ;
-    ele1.innerHTML = '終了!!';
+    gEle4.innerHTML = gEle3.innerHTML = gEle2.innerHTML = "";
+    gEle4.parentElement.style.display = "none" ;
+    gEle1.innerHTML = '終了!!';
     var result = '<table><tr><td>間違えたキー数</td><td>' + gWrong_cnt + ' key</td></tr>';
     result += '<tr><td>正解キー数</td><td>' + gCorrect_cnt + ' key</td></tr>';
     result += '<tr><td>時間</td><td>' + Math.round(dt / 100) / 10 + ' s';
     result += '<tr><td>スピード</td><td>' + Math.round(gCorrect_cnt / dt * 10000) / 10 +' key/s</td></tr>';
     result += '</table>';
-    ele2.innerHTML = result;
-    ele3.innerHTML = 'スペースキーを押したら再スタート';
+    gEle2.innerHTML = result;
+    gEle3.innerHTML = 'スペースキーを押したら再スタート';
   }
 });
