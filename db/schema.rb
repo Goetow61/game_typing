@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_125042) do
+ActiveRecord::Schema.define(version: 2020_03_06_062422) do
 
   create_table "qfiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2020_01_27_125042) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_qfiles_on_user_id"
+  end
+
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "qfile_id"
+    t.integer "correct_cnt", null: false
+    t.integer "wrong_cnt", null: false
+    t.decimal "elapsed_time", precision: 5, scale: 1, null: false
+    t.decimal "speedk", precision: 3, scale: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["qfile_id"], name: "index_results_on_qfile_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,4 +50,6 @@ ActiveRecord::Schema.define(version: 2020_01_27_125042) do
   end
 
   add_foreign_key "qfiles", "users"
+  add_foreign_key "results", "qfiles"
+  add_foreign_key "results", "users"
 end
