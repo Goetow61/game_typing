@@ -35,7 +35,6 @@ class QuestionsController < ApplicationController
       question << row
     end
     # javascriptに変数を渡す
-    gon.question_id = @qfile.id
     gon.question = question
     # いらないかもしれないが、テンポラリファイルを閉じて削除
     file.close

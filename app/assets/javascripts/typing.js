@@ -1,14 +1,5 @@
 onPageLoad('questions#play', function() {
-  var question_id = gon.question_id;
   var gPhrase = gon.question;
-  // console.log(question_id);
-  // console.log(gPhrase[0]);
-
-  // 問題文
-  // var gPhrase = new Array(["I see","分かりました"],["That makes sense","それは理に適っています"],["Good for you","あなたに良い"],
-  //                       ["May be/Probably","かもしれない/多分"],["Are you kidding?","冗談ですよね？"]);      
-  // debugger
-  // var gPhrase = csv2Array(question_url);
   var gKey = '';              // 入力した文字
   var gMondai = "";           //問題の文字列を格納
   var gMondai_pointer=0;      //問題文の入力位置(何文字目か)
@@ -20,25 +11,6 @@ onPageLoad('questions#play', function() {
   var gEle2 = document.getElementById("japanese_translation");
   var gEle3 = document.getElementById("remaining_time");
   var gEle4 = document.getElementById("wrong_cnt");
-
-  // 問題文をCSVから読み込む(https://gist.github.com/tigawa/8858345)
-  // function csv2Array(filePath) { //csvﾌｧｲﾙﾉ相対ﾊﾟｽor絶対ﾊﾟｽ
-  //   var csvData = new Array();
-  //   var data = new XMLHttpRequest();	
-  //   data.open("GET", filePath, false); //true:非同期,false:同期
-  //   data.send(null);
-  
-  //   var LF = String.fromCharCode(10); //改行ｺｰﾄﾞ
-  //   var lines = data.responseText.split(LF);  //1行ずつに区切って代入
-  //   for (var i = 0; i < lines.length;++i) {
-  //     // var cells = lines[i].split(",");
-  //     var cells = lines[i].split(String.fromCharCode(9)); //カンマではなく、タブ区切りにしている為、カラムでセルを分ける
-  //     // if( cells.length != 1 ) {
-  //       csvData.push(cells);
-  //     // }
-  //   }
-  //   return csvData;
-  // }
 
   // escキー押下でリセット
   document.onkeydown = function(event2) {
@@ -104,9 +76,6 @@ onPageLoad('questions#play', function() {
     
     //表示する問題文の作成
     randomNum = Math.floor( Math.random() * gPhrase.length )
-    // gMondai = gPhrase[randomNum][0];
-    // japanese_translation = gPhrase[randomNum][1];
-    // gMondai = gPhrase[ Math.floor( Math.random() * gPhrase.length ) ];
     gMondai = gPhrase[randomNum][0];
     japanese_translation = gPhrase[randomNum][1];
 
@@ -117,14 +86,13 @@ onPageLoad('questions#play', function() {
 
     //問題枠に表示する
     $('i').remove();
-    
-    // デフォ表示を消す
     gEle1.innerHTML = str1;
     gEle2.innerHTML = japanese_translation;
     // 問題が変わる度に表示が消されるのは変なので、最初に一度表示したら終わるまで表示したままにしておく
     if ( gWrong_cnt===0 && gCorrect_cnt===0 ) {
       gEle4.innerHTML = gEle3.innerHTML = "";
     }
+    // 結果表示時にdisplay:noneにしているのでdisplay:blockに設定し直す。
     gEle4.parentElement.style.display = "block";
   }
 
