@@ -121,13 +121,16 @@ onPageLoad('questions#play', function() {
   //終了したらやること
   function ShowResult(dt) {
     gEle4.innerHTML = gEle3.innerHTML = gEle2.innerHTML = "";
+    // 表示すべき語句が無いのでdivブロックを見えなくする(style変えないと語句無しの不自然なブロックが表示されてしまう)
     gEle4.parentElement.style.display = "none" ;
     gEle1.innerHTML = '終了!!';
     var result = {};
+
     result['correct_cnt'] = gCorrect_cnt;
     result['wrong_cnt'] = gWrong_cnt;
     result['elapsed_time'] = Math.round(dt / 100) / 10;
     result['speed'] = Math.round(gCorrect_cnt / dt * 10000) / 10;
+    
     var result_disp = '<table><tr><td>正解キー数</td><td>' + result['correct_cnt'] + ' key</td></tr>';
     result_disp += '<tr><td>間違えたキー数</td><td>' + result['wrong_cnt'] + ' key</td></tr>';
     result_disp += '<tr><td>時間</td><td>' + result['elapsed_time'] + ' s';
@@ -135,6 +138,7 @@ onPageLoad('questions#play', function() {
     result_disp += '</table>';
     gEle2.innerHTML = result_disp;
     gEle3.innerHTML = 'スペースキーを押したら再スタート';
+    
     // https://qiita.com/naberina/items/d3b14521e78e0daccdcd
     // ajaxでrailsに通信しようとするとCSRFエラーが出る為追加
     $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
@@ -146,24 +150,21 @@ onPageLoad('questions#play', function() {
         }
       }
     });
+    
     $(function(){
-      // debugger
       $.ajax({
         url: 'result',
         type: 'POST',
-        // data: result,
-        // data: {data: result},
         data: JSON.stringify(result),
         dataType: 'json',
         processData: false,
-        // contentType: false
         contentType: 'application/json'
       })
       .done(function(){
-        console.log("成功・・・か？");
+        console.log("タイピング結果の送信成功");
       })
       .fail(function(){
-        console.log("失敗");
+        console.log("タイピング結果の送信失敗");
       });
     });
   }

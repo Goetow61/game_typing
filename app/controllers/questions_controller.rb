@@ -46,10 +46,8 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @result.save
         format.json
-        # format.html
       else
         format.json {render :play}
-        # format.html {render :play}
       end
     end
   end
@@ -61,7 +59,6 @@ class QuestionsController < ApplicationController
   end
 
   def result_params
-    # params.require(:result).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(user_id: current_user.id, qfile_id: params[:id])
     params.require(:question).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(user_id: current_user.id, qfile_id: params[:id])
   end
 

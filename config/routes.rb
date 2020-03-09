@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     member do
       get 'play'
       post 'result', defaults: { format: 'json' }
-      # post 'result'
     end
   end
 end
