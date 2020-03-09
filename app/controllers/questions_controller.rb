@@ -41,10 +41,25 @@ class QuestionsController < ApplicationController
     file.unlink
   end
 
+  def result
+    @result = Result.new(result_params)
+    respond_to do |format|
+      if @result.save
+        format.json
+      else
+        format.json {render :play}
+      end
+    end
+  end
+
   private
 
   def qfile_params
     params.require(:qfile).permit(:title, :overview, :category, :src).merge(user_id: current_user.id)
+  end
+
+  def result_params
+    params.require(:question).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(user_id: current_user.id, qfile_id: params[:id])
   end
 
 end

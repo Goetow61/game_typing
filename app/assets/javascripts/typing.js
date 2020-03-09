@@ -121,14 +121,51 @@ onPageLoad('questions#play', function() {
   //終了したらやること
   function ShowResult(dt) {
     gEle4.innerHTML = gEle3.innerHTML = gEle2.innerHTML = "";
+    // 表示すべき語句が無いのでdivブロックを見えなくする(style変えないと語句無しの不自然なブロックが表示されてしまう)
     gEle4.parentElement.style.display = "none" ;
     gEle1.innerHTML = '終了!!';
-    var result = '<table><tr><td>間違えたキー数</td><td>' + gWrong_cnt + ' key</td></tr>';
-    result += '<tr><td>正解キー数</td><td>' + gCorrect_cnt + ' key</td></tr>';
-    result += '<tr><td>時間</td><td>' + Math.round(dt / 100) / 10 + ' s';
-    result += '<tr><td>スピード</td><td>' + Math.round(gCorrect_cnt / dt * 10000) / 10 +' key/s</td></tr>';
-    result += '</table>';
-    gEle2.innerHTML = result;
+    var result = {};
+
+    result['correct_cnt'] = gCorrect_cnt;
+    result['wrong_cnt'] = gWrong_cnt;
+    result['elapsed_time'] = Math.round(dt / 100) / 10;
+    result['speed'] = Math.round(gCorrect_cnt / dt * 10000) / 10;
+    
+    var result_disp = '<table><tr><td>正解キー数</td><td>' + result['correct_cnt'] + ' key</td></tr>';
+    result_disp += '<tr><td>間違えたキー数</td><td>' + result['wrong_cnt'] + ' key</td></tr>';
+    result_disp += '<tr><td>時間</td><td>' + result['elapsed_time'] + ' s';
+    result_disp += '<tr><td>スピード</td><td>' + result['speed'] +' key/s</td></tr>';
+    result_disp += '</table>';
+    gEle2.innerHTML = result_disp;
     gEle3.innerHTML = 'スペースキーを押したら再スタート';
+    
+    // https://qiita.com/naberina/items/d3b14521e78e0daccdcd
+    // ajaxでrailsに通信しようとするとCSRFエラーが出る為追加
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+      var token;
+      if (!options.crossDomain) {
+      token = $('meta[name="csrf-token"]').attr('content');
+        if (token) {
+            return jqXHR.setRequestHeader('X-CSRF-Token', token);
+        }
+      }
+    });
+    
+    $(function(){
+      $.ajax({
+        url: 'result',
+        type: 'POST',
+        data: JSON.stringify(result),
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json'
+      })
+      .done(function(){
+        console.log("タイピング結果の送信成功");
+      })
+      .fail(function(){
+        console.log("タイピング結果の送信失敗");
+      });
+    });
   }
 });
