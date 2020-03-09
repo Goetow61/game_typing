@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :questions do
     member do
       get 'play'
+      post 'result', defaults: { format: 'json' }
+      # post 'result'
     end
   end
-  # resources :users, only: [:edit, :update]
 end

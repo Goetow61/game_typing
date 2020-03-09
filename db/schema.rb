@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_062422) do
     t.integer "correct_cnt", null: false
     t.integer "wrong_cnt", null: false
     t.decimal "elapsed_time", precision: 5, scale: 1, null: false
-    t.decimal "speedk", precision: 3, scale: 1, null: false
+    t.decimal "speed", precision: 3, scale: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["qfile_id"], name: "index_results_on_qfile_id"
