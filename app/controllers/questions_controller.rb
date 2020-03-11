@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
+    @aggregates = Qfile.left_outer_joins(:results).where(user_id: 1).select("qfiles.id, qfiles.title, qfiles.results_count, COUNT(distinct results.user_id) AS count_distinct_results_user_id").group("qfiles.id, qfiles.category, results_count").order("qfiles.id ASC")
   end
 
   def new
