@@ -1,0 +1,12 @@
+-# 問題別のランキング表示をする前に、各問題別にチャレンジした人がどれぐらいいたのか、という
+-# 一覧を表示しようと思ったが、やっぱりくどい気がしたのでやめた。データベースの集計処理に学びがあったので
+-# コードだけ保存しておく。
+.content
+  - @aggregates.each do |aggregate|
+    %h2
+      = aggregate.title
+    .result
+      %p
+        = aggregate.count_distinct_results_user_id.to_s + " ユーザーの記録"
+      %p
+        = aggregate.results_count.to_s + " 件の履歴"

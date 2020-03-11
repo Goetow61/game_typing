@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       post 'result', defaults: { format: 'json' }
     end
   end
+  resources :rankings
 end
