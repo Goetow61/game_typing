@@ -88,6 +88,7 @@ onPageLoad('questions#play', function() {
     $('i').remove();
     gEle1.innerHTML = str1;
     gEle2.innerHTML = japanese_translation;
+
     // 問題が変わる度に表示が消されるのは変なので、最初に一度表示したら終わるまで表示したままにしておく
     if ( gWrong_cnt===0 && gCorrect_cnt===0 ) {
       gEle4.innerHTML = gEle3.innerHTML = "";
@@ -160,7 +161,7 @@ onPageLoad('questions#play', function() {
         processData: false,
         contentType: 'application/json'
       })
-      .done(function(){
+      .done(function(aiueo){
         console.log("タイピング結果の送信成功");
       })
       .fail(function(){
