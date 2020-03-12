@@ -1,0 +1,38 @@
+.content.ranking
+  %table.ranking
+    - @results.each.with_index(1) do |result, idx|
+      - if idx===1 then
+        %th
+          %td.thtd.num
+            順位
+          %td.thtd
+            名前
+          %td.thtd.num
+            正解(key)
+          %td.thtd.num
+            誤(key)
+          %td.thtd.num
+            時間(s)
+          %td.thtd.num
+            速度(key/s)
+          %td.thtd
+            実行日
+      %tr
+        -# haml記法の影響で、ヘッダと比較して左方向に1セルずれてしまうのでダミーセルを入れて調整する
+        %td.trtd
+        %td.trtd.num
+          = idx
+        %td.trtd
+          = result.user.nickname
+        %td.trtd.num
+          = result.correct_cnt
+        %td.trtd.num
+          = result.wrong_cnt
+        %td.trtd.num
+          = result.elapsed_time
+        %td.trtd.num
+          = result.speed
+        %td.trtd
+          = result.created_at.strftime('%Y/%m/%d %H:%M')
+  .ranking__link
+    = link_to '爪痕を残す', play_question_path, method: :get
