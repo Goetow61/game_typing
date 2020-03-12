@@ -20,4 +20,7 @@
       %td
         = @qfile.updated_at.to_s(:db) + ' に更新'
   .submit
-    = link_to 'この問題をタイピングする', "#{@qfile.id}/play"
+    = link_to 'この問題をタイピングする', play_question_path
+  - if user_signed_in? && current_user.id == @qfile.user_id && @qfile.user_id != 1
+    .submit.destroy
+      = link_to 'この問題を削除する', question_path, method: :delete

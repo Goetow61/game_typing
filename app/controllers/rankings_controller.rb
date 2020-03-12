@@ -4,7 +4,7 @@ class RankingsController < ApplicationController
   end
 
   def show
-    @results = Result.order("results.speed DESC, results.created_at ASC").where(qfile_id: params[:id])
+    @results = Result.order("results.speed DESC, results.created_at ASC").where(qfile_id: params[:id]).includes(:user)
   end
 
 end
