@@ -161,7 +161,7 @@ onPageLoad('questions#play', function() {
         processData: false,
         contentType: 'application/json'
       })
-      .done(function(aiueo){
+      .done(function(){
         console.log("タイピング結果の送信成功");
       })
       .fail(function(){
