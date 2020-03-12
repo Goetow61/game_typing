@@ -16,6 +16,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    qfile = Qfile.find(params[:id])
+    qfile.destroy
+  end
+
   def show
     @qfile = Qfile.find(params[:id]) 
   end
