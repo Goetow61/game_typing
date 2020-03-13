@@ -21,8 +21,11 @@
       }
     }
     .list-area {
-      li {
-        margin-top: 12px;
+      table {
+        table-layout: fixed;
+      }
+      td{ 
+        width: auto;
       }
     }
   }
