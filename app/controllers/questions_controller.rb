@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   def index
     @aggregates = Qfile.left_outer_joins(:results).where(user_id: 1).select("qfiles.id, qfiles.title, qfiles.results_count, COUNT(distinct results.user_id) AS count_distinct_results_user_id").group("qfiles.id, qfiles.category, results_count").order("qfiles.id ASC")
+    @qfiles_words = Qfile.where(category: 0, user_id: 1).order(:id)
+    @qfiles_sentences = Qfile.where(category: 1, user_id: 1).order(:id)
+    @qfiles = Qfile.where.not(user_id: 1).order(id: 'DESC').includes(:user)
   end
 
   def new
@@ -18,7 +21,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     qfile = Qfile.find(params[:id])
-    qfile.destroy
+    if qfile.destroy!
+      flash[:notice] = "問題を削除しました。"
+    else
+      flash[:alert] = "問題を削除できませんでした。"
+    end
+    redirect_to root_path
   end
 
   def show

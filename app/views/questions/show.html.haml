@@ -15,10 +15,10 @@
         = @qfile.user.nickname + ' さん が登録'
     %tr
       %td
-        = @qfile.created_at.to_s(:db) + ' に登録'
+        = @qfile.created_at.strftime('%Y/%m/%d %H:%M') + ' に登録'
     %tr
       %td
-        = @qfile.updated_at.to_s(:db) + ' に更新'
+        = @qfile.updated_at.strftime('%Y/%m/%d %H:%M') + ' に更新'
   .submit
     = link_to 'この問題をタイピングする', play_question_path
   - if user_signed_in? && current_user.id == @qfile.user_id && @qfile.user_id != 1
