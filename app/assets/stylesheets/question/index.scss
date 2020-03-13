@@ -24,8 +24,22 @@
       table {
         table-layout: fixed;
       }
-      td{ 
+      td {
         width: auto;
+      }
+      td.categoryy {
+      width: 100px;
+      border-bottom: 2px solid $accent;
+      }
+      td.nickname {
+        text-align: right;
+        padding-right: 160px;
+        line-height: 1em;
+        border-bottom: 2px solid $accent;
+      }
+      td.title {
+        line-height: 2em;
+        border-bottom: 0;
       }
     }
   }

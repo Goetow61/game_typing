@@ -21,7 +21,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     qfile = Qfile.find(params[:id])
-    qfile.destroy
+    if qfile.destroy!
+      flash[:notice] = "問題を削除しました。"
+    else
+      flash[:alert] = "問題を削除できませんでした。"
+    end
+    redirect_to root_path
   end
 
   def show

@@ -48,12 +48,14 @@
         %h2
           ユーザー投稿　投稿が新しい順
       .list-area
-        - @qfiles.each do |qfile|
-          %table
+        %table.user-post-table
+          - @qfiles.each do |qfile|
             %tr
-              %td
+              %td.categoryy{rowspan: 2}
                 = qfile.category
-              %td
+              -# %td.title
+              %td.title
                 = link_to qfile.title, "/questions/#{qfile.id}", method: :get
-              %td
-                = link_to "by" + qfile.user.nickname
+            %tr
+              %td.nickname
+                = "by#{qfile.user.nickname}"
