@@ -1,6 +1,6 @@
 ![booksearch](https://user-images.githubusercontent.com/57985382/76777705-f1355080-67eb-11ea-9f5d-51a855d30b0b.png)
 
-##　内容
+## 内容
 
 英語をタイピング練習することができます。
 問題文は、単語と文章を用意しています。
