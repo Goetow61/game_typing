@@ -31,7 +31,7 @@ onPageLoad('questions#play', function() {
       // gTimeStart===undefined ゲームスタートしているかどうかを判断する
       if ( (event.key===32 || event.which===32 ) && gTimeStart===undefined) {
         // 引数に制限時間(秒)を入力。未指定時デフォルトは10秒
-        TimeInit(400);
+        TimeInit(30);
         // 
         // 問題文を表示する
         gameSet();
