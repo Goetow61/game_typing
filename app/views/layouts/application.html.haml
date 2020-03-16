@@ -5,10 +5,8 @@
     %title GameTyping
     = csrf_meta_tags
     = csp_meta_tag
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    -# = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.css")
-    = javascript_include_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.js")
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = include_gon
     -# = <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
   %body{ data: { controller: controller_name, action: action_name }}
