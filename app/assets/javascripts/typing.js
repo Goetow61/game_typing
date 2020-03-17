@@ -47,7 +47,7 @@ onPageLoad('questions#play', function() {
   }
 
   // ttに制限時間(秒)を入力。未指定時デフォルトは10秒
-  function TimeInit(tt=10) {
+  function TimeInit(tt) {
     gTimeLimit = tt * 1000; // 秒をミリ秒に変換
     var dd = new Date();  // 開始時間取得
     gTimeStart = dd.getTime();   // ミリ秒に変換
