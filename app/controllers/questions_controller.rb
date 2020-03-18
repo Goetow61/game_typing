@@ -1,9 +1,10 @@
 class QuestionsController < ApplicationController
   def index
-    @aggregates = Qfile.left_outer_joins(:results).where(user_id: 1).select("qfiles.id, qfiles.title, qfiles.results_count, COUNT(distinct results.user_id) AS count_distinct_results_user_id").group("qfiles.id, qfiles.category, results_count").order("qfiles.id ASC")
-    @qfiles_words = Qfile.where(category: 0, user_id: 1).order(:id)
-    @qfiles_sentences = Qfile.where(category: 1, user_id: 1).order(:id)
-    @qfiles = Qfile.where.not(user_id: 1).order(id: 'DESC').includes(:user)
+    default_user_id = User.where(email: ENV['GMAIL_ADDRESS']).select(:id).ids[0]
+    @aggregates = Qfile.left_outer_joins(:results).where(user_id: default_user_id).select("qfiles.id, qfiles.title, qfiles.results_count, COUNT(distinct results.user_id) AS count_distinct_results_user_id").group("qfiles.id, qfiles.category, results_count").order("qfiles.id ASC")
+    @qfiles_words = Qfile.where(category: 0, user_id: default_user_id).order(:id)
+    @qfiles_sentences = Qfile.where(category: 1, user_id: default_user_id).order(:id)
+    @qfiles = Qfile.where.not(user_id: default_user_id).order(id: 'DESC').includes(:user)
   end
 
   def new
@@ -12,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     @qfile = Qfile.new(qfile_params)
+    binding.pry
     if @qfile.save!
       redirect_to root_path
     else
@@ -30,6 +32,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @default_user_id = User.where(email: ENV['GMAIL_ADDRESS']).select(:id).ids[0]
     @qfile = Qfile.find(params[:id]) 
   end
 
