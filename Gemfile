@@ -94,3 +94,4 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'gon'
 gem 'counter_culture'
+gem "actionview", ">= 5.2.4.2"
