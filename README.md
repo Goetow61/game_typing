@@ -1,4 +1,4 @@
-![booksearch](https://user-images.githubusercontent.com/57985382/76777705-f1355080-67eb-11ea-9f5d-51a855d30b0b.png)
+<img src="https://user-images.githubusercontent.com/57985382/76777705-f1355080-67eb-11ea-9f5d-51a855d30b0b.png" width="50%">
 
 ## URL
 [GameTyping (https://gametyping.herokuapp.com/)](https://gametyping.herokuapp.com/)
@@ -21,12 +21,12 @@ Heroku, AWS S3, VSCode (Visual Studio Code)
 
 ## 仕組み
 
-ユーザー管理はdevise gemで行っています。
-タイピングする文言は、「"英語文"\t"日本語訳"」の形でCSVファイルとして登録しています。
-CSVファイルのアップロードはcarrierwave gemを使い、AWS S3に保存しています。
-CSVファイルのダウンロードはcarrierwave gemでURLを取得しダウンロード、Tempfileクラスに保存、Fileクラスで開き、CSVクラスで行列を読み込み、1行ずつ配列変数に代入しています。
-
-配列変数はjavascriptに渡して、javascriptでタイピングゲームを動かしています。
+ユーザー管理はdevise gemで行っています。  
+タイピングする文言は、「"英語文"\t"日本語訳"」の形でCSVファイルとして登録しています。  
+<img src="https://user-images.githubusercontent.com/57985382/77425665-6b7e5a00-6e16-11ea-9d97-e102a48dc673.png" width="50%">
+CSVファイルのアップロードはcarrierwave gemを使い、AWS S3に保存しています。  
+CSVファイルのダウンロードはcarrierwave gemでURLを取得しダウンロード、Tempfileクラスに保存、Fileクラスで開き、CSVクラスで行列を読み込み、1行ずつ配列変数に代入しています。  
+配列変数はjavascriptに渡して、javascriptでタイピングゲームを動かしています。  
 javascriptはクライアントのキー押下で、CSVファイルのダウンロードリクエスト、制限時間の記録、問題文の表示、結果の表示を行っています。
 
 ## データベース構造
