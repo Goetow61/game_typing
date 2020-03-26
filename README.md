@@ -9,7 +9,7 @@
 
 ## 環境
 
-Ruby 2.5.1, Rails 5.2.4.1, Mysql 5.5.56
+Ruby 2.5.1, Rails 5.2.4.1, Mysql 5.5.56  
 Heroku, AWS S3, VSCode (Visual Studio Code)
 
 ## 機能
