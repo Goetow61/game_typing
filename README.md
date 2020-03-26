@@ -23,7 +23,7 @@ Heroku, AWS S3, VSCode (Visual Studio Code)
 
 ユーザー管理はdevise gemで行っています。  
 タイピングする文言は、「"英語文"\t"日本語訳"」の形でCSVファイルとして登録しています。  
-<img src="https://user-images.githubusercontent.com/57985382/77425665-6b7e5a00-6e16-11ea-9d97-e102a48dc673.png" width="50%">
+<img src="https://user-images.githubusercontent.com/57985382/77425665-6b7e5a00-6e16-11ea-9d97-e102a48dc673.png" width="30%">  
 CSVファイルのアップロードはcarrierwave gemを使い、AWS S3に保存しています。  
 CSVファイルのダウンロードはcarrierwave gemでURLを取得しダウンロード、Tempfileクラスに保存、Fileクラスで開き、CSVクラスで行列を読み込み、1行ずつ配列変数に代入しています。  
 配列変数はjavascriptに渡して、javascriptでタイピングゲームを動かしています。  
