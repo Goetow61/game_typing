@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   # できれば、ユーザー登録せずともタイピングできるようにしたい。実装変える時に無効にすること。
   # 
   # ログインしていない場合にログインページにリダイレクトさせる
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  
   # deviseに関わる画面表示の時にパラメータを許可する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
