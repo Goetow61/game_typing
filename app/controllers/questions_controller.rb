@@ -60,12 +60,17 @@ class QuestionsController < ApplicationController
 
   def result
     @result = Result.new(result_params)
-    respond_to do |format|
-      if @result.save
-        format.json
-      else
-        format.json {render :play}
+    if user_signed_in?
+      respond_to do |format|
+        if @result.save
+          format.json
+        else
+          format.json {render :play}
+        end
       end
+    else
+      # ログインしていなかった場合に一時的にタイピング結果をcookieに保存
+      session[:result] = @result
     end
   end
 
@@ -76,7 +81,11 @@ class QuestionsController < ApplicationController
   end
 
   def result_params
-    params.require(:question).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(user_id: current_user.id, qfile_id: params[:id])
+    if user_signed_in?
+      params.require(:question).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(user_id: current_user.id, qfile_id: params[:id])
+    else
+      params.require(:question).permit(:correct_cnt, :wrong_cnt, :elapsed_time, :speed).merge(qfile_id: params[:id])
+    end
   end
 
 end
