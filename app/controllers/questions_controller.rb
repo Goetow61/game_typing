@@ -59,6 +59,9 @@ class QuestionsController < ApplicationController
   end
 
   def result
+    # 非ログイン状態で保持していたタイピング結果を破棄
+    session[:result] = nil
+
     @result = Result.new(result_params)
     if user_signed_in?
       respond_to do |format|
