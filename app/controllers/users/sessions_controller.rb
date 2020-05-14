@@ -18,10 +18,15 @@ class Users::SessionsController < Devise::SessionsController
     # タイピング結果をログイン時に登録する。（新規登録時にもsign_inが走るので
     # registrations_controllerは触る必要ない）
     if session[:result] != nil
-      @result = Result.new(session[:result])
-      @result.user_id = resource.id
-      @result.save
+      # cookieの有効期限が切れていなければ登録
+      if session[:result_expires_at] > Time.now
+        @result = Result.new(session[:result])
+        @result.user_id = resource.id
+        @result.save
+      end
+      # cookieの破棄
       session[:result] = nil
+      session[:result_expires_at] = nil
     end
     
     yield resource if block_given?

@@ -60,7 +60,10 @@ class QuestionsController < ApplicationController
 
   def result
     # 非ログイン状態で保持していたタイピング結果を破棄
-    session[:result] = nil
+    if session[:result]!=nil
+      session[:result] = nil
+      session[:result_expires_at] = nil
+    end
 
     @result = Result.new(result_params)
     if user_signed_in?
@@ -74,6 +77,7 @@ class QuestionsController < ApplicationController
     else
       # ログインしていなかった場合に一時的にタイピング結果をcookieに保存
       session[:result] = @result
+      session[:result_expires_at] = 1.hour.from_now
     end
   end
 
