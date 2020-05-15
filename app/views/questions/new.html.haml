@@ -10,3 +10,49 @@
       = f.file_field :src
     .actions
       = f.submit
+  .explanation
+    %br
+    登録できるファイルの種類は、CSVファイルです。
+    %br
+    %br
+    フォーマットは、
+    %li
+      ヘッダー無し
+    %li
+      カラムは、①英文、②英文の英訳等コメント
+    %li
+      カラムの区切りは文字は、タブ文字(/t)
+    %br
+    以下、例を示します。
+    %br
+    %table{ id: "example" }
+      %tr
+        %td
+          pamphlet
+        %td
+          パンフレット
+      %tr
+        %td
+          pan
+        %td
+          パン
+      %tr
+        %td
+          pant
+        %td
+          パンツ
+      %tr
+        %td
+          Let's try something.
+        %td
+          何かを試してみましょう。
+      %tr
+        %td
+          I have to go to sleep.
+        %td
+          もう寝なくてはいけない。
+      %tr
+        %td
+          Today is June 18th and it
+        %td
+          今日は6月18日であり、それは
