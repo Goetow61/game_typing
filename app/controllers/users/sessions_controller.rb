@@ -17,8 +17,10 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
     result(resource.id)
+    redirect_to root_path, notice: 'ログインしました。'
   end
 
   # DELETE /resource/sign_out
