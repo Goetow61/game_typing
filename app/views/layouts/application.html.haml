@@ -15,9 +15,10 @@
     .flash.flash__alert
       = alert
     .header
-      .header__bar.row
+      .header__left.row
         .title
-          = link_to "英語タイピング", root_path
+          = link_to "英語学習タイピング", root_path
+      .header__right.row
         - if user_signed_in?
           .user_nav
             .nickname
