@@ -15,11 +15,11 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 62px;
-  &__bar {
+  height: 92px;
+  &__left {
     @include row;
     display: flex;
-    justify-content: space-between; 
+    justify-content: flex-start; 
     .title {
       font-size: 30px;
       height: 62px;
@@ -30,12 +30,18 @@
         line-height: 41px;
       }
     }
+  }
+  &__right {
+    @include row;
+    display: flex;
+    justify-content: flex-end;
     .user_nav {
       height: auto;
       position: relative;
       font-size: 20px;
       display: flex;
       align-items: center;
+      justify-content: right;
       .nickname {
         height: 30px;
         line-height: 30px;
@@ -55,18 +61,18 @@
       }
       ul.user__info {
         white-space: nowrap;
-        background-color: #f0f0f0;
+        background-color: honeydew;
         color: #57C3E9;
         cursor: pointer;
         display: none;
         box-sizing: border-box;
         position: absolute;
-        top: 46px;
+        top: 31px;
         margin: 0;
         right: 0;
         padding: 0;
         text-align: left;
-        border-bottom: 1px solid #d8d8d8;
+        border: 1px solid turquoise;
         box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
         list-style: none;
         &:hover {

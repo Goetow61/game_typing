@@ -1,74 +1,83 @@
-<img src="https://user-images.githubusercontent.com/57985382/76777705-f1355080-67eb-11ea-9f5d-51a855d30b0b.png" width="50%">
-
-## URL
-[GameTyping (https://gametyping.herokuapp.com/)](https://gametyping.herokuapp.com/)
+<img src="https://user-images.githubusercontent.com/57985382/84869518-1bcbc980-b0b9-11ea-9e14-1ac69271f035.PNG" width="50%">
 
 ## 内容
+このアプリは、英単語もしくは英文のタイピング練習を行うアプリです。<br>
+タイピング練習を通して英単語や英文を覚え、英語の読解力向上に繋げる為に作りました。
 
-英単語か英文でタイピングの練習を行い、タイピングスピードでランキングを表示します。
+## URL
+[https://gametyping.herokuapp.com/](https://gametyping.herokuapp.com/)
 
 ## 環境
 
-Ruby 2.5.1, Rails 5.2.4.1, Mysql 5.5.56  
-Heroku, AWS S3, VSCode (Visual Studio Code)
+- フロント
+  - Haml
+  - JavaScript
+  - jQuery
+- バックエンド
+  - Ruby 2.5.1
+  - Rails 5.2.4.1
+- インフラ
+  - Heroku
+  - MySQL 5.5.56
+  - AWS S3
+<img src="https://user-images.githubusercontent.com/57985382/84886947-10d06380-b0d0-11ea-9376-5b92633e1ea7.png" width="50%">
 
-## 機能
+## 機能要件
 
-1. ユーザー登録・編集・ログイン・ログアウト
-1. タイピングする問題をCSVファイルで登録
-1. タイピングゲーム
-1. ランキング表示
+- 非ログイン時
+  - タイピングゲーム
+  - ランキング表示
+- ログイン時
+  - タイピング履歴保存
+  - ユーザー管理
+  - タイピングする問題の登録、削除
 
-## 仕組み
+## 非機能要件
 
-ユーザー管理はdevise gemで行っています。  
-タイピングする文言は、「"英語文"\t"日本語訳"」の形でCSVファイルとして登録しています。  
-<img src="https://user-images.githubusercontent.com/57985382/77425665-6b7e5a00-6e16-11ea-9d97-e102a48dc673.png" width="30%">  
-CSVファイルのアップロードはcarrierwave gemを使い、AWS S3に保存しています。  
-CSVファイルのダウンロードはcarrierwave gemでURLを取得しダウンロード、Tempfileクラスに保存、Fileクラスで開き、CSVクラスで行列を読み込み、1行ずつ配列変数に代入しています。  
-配列変数はjavascriptに渡して、javascriptでタイピングゲームを動かしています。  
-javascriptはクライアントのキー押下で、CSVファイルのダウンロードリクエスト、制限時間の記録、問題文の表示、結果の表示を行っています。
+- 非ログイン時のタイピング結果を最新1件のみ、ログイン時に保存
 
 ## データベース構造
 
 ### usersテーブル
 
 |Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|email|string|null: true, unique:true|
-|password|string|null: false|
+|---|---|---|
+|nickname |string |null: false|
+|email    |string |null: true, unique: true|
+|password |string |null: false|
 
 ### Association
-- has_many :results
-- has_many :qfiles
+
+- has_many: results
+- has_many: qfiles
 
 ### qfilesテーブル
 
 |Column|Type|Options|
 |---|---|---|
-|title|string|null: false|
-|overview|text||
-|src|string|null: false|
-|category|integer|null: false|
-|user_id|biginteger||
+|title    |string     |null: false|
+|overview |text       ||
+|src      |string     |null: false|
+|category |integer    |null: false|
+|user_id  |biginteger ||
 
 ### Association
-- belongs_to :user
-- has_many :results
+
+- belongs_to: user
+- has_many:   results
 
 ### resultsテーブル
 
 |Column|Type|Options|
-|------|----|-------|
-|user_id|biginteger||
-|qfile_id|biginteger||
-|correct_cnt|integer|null: false|
-|wrong_cnt|integer|null: false|
-|elapsed_time|decimal|null: false|
-|speed|decimal|null:false|
+|---|---|---|
+|user_id      |biginteger ||
+|qfile_id     |biginteger ||
+|correct_cnt  |integer    |null: false|
+|wrong_cnt    |integer    |null: false|
+|elapsed_time |decimal    |null: false|
+|speed        |decimal    |null: false|
 
 ### Association
 
-- belongs_to :user
-- belongs_to :qfile
+- belongs_to: user
+- belongs_to: qfile
