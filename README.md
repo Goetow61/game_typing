@@ -1,8 +1,8 @@
 <img src="https://user-images.githubusercontent.com/57985382/84869518-1bcbc980-b0b9-11ea-9e14-1ac69271f035.PNG" width="50%">
 
 ## 内容
-このアプリは、英単語や英文のタイピング練習を行うアプリです。<br>
-タイピング練習を通して英単語や英文を覚え、英語の読解力向上に繋げる為に作りました。<br>
+このアプリは、英単語もしくは英文のタイピング練習を行うアプリです。<br>
+タイピング練習を通して英単語や英文を覚え、英語の読解力向上に繋げる為に作りました。
 
 ## URL
 [https://gametyping.herokuapp.com/](https://gametyping.herokuapp.com/)
