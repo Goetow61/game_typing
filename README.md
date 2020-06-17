@@ -9,7 +9,7 @@
 
 ## 環境
 
-- フロント
+- フロントエンド
   - Haml
   - JavaScript
   - jQuery
@@ -20,7 +20,7 @@
   - Heroku
   - MySQL 5.5.56
   - AWS S3
-<img src="https://user-images.githubusercontent.com/57985382/84898494-51d17380-b0e2-11ea-8db7-f775d1e039da.png" width="50%">
+<img src="https://user-images.githubusercontent.com/57985382/84908360-55b7c280-b0ef-11ea-85d6-e8e8554e77ef.png" width="50%">
 
 ## 機能要件
 
