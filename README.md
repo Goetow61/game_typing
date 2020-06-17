@@ -20,7 +20,7 @@
   - Heroku
   - MySQL 5.5.56
   - AWS S3
-<img src="https://user-images.githubusercontent.com/57985382/84886947-10d06380-b0d0-11ea-9376-5b92633e1ea7.png" width="50%">
+<img src="https://user-images.githubusercontent.com/57985382/84898494-51d17380-b0e2-11ea-8db7-f775d1e039da.png" width="50%">
 
 ## 機能要件
 
