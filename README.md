@@ -1,4 +1,6 @@
-<img src="https://user-images.githubusercontent.com/57985382/84869518-1bcbc980-b0b9-11ea-9e14-1ac69271f035.PNG" width="50%">
+## 英語学習タイピング
+
+<img src="https://user-images.githubusercontent.com/57985382/84977572-9c480400-b165-11ea-9f9b-43bf4c9a9f80.PNG" width="50%">
 
 ## 内容
 このアプリは、英単語もしくは英文のタイピング練習を行うアプリです。<br>
