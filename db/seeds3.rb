@@ -14,11 +14,11 @@ overview = 'Tatoeba 文章と翻訳のコレクション(https://tatoeba.org/jpn
 src = ['sentence_005.csv','sentence_006.csv','sentence_007.csv','sentence_008.csv']
 category = [1,1,1,1]
 
-# count = 0
-# while(count < title.length) do
-#   Qfile.create(title: title[count], overview: overview, src: open("#{Rails.root}/db/csv/#{src[count]}"), category: category[count], user_id: id.ids[0] )
-#   count = count + 1
-# end
+count = 0
+while(count < title.length) do
+  Qfile.create(title: title[count], overview: overview, src: open("#{Rails.root}/db/csv/#{src[count]}"), category: category[count], user_id: id.ids[0] )
+  count = count + 1
+end
 
 title = ['なんで笑ってるの？','がばっと気合を入れて身を起こした。','カメラを見ていてね。',
   '冗談だろう！','今日のトムは調子が良さそうだ。','トムってフランス語もやってるの？',
@@ -37,7 +37,7 @@ src = ['free_sentence_001.csv','free_sentence_002.csv','free_sentence_003.csv',
   'free_word_008.csv','free_word_009.csv','free_word_010.csv']
 category = [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-count = 15
+count = 0
 while(count < title.length) do
   # user_idランダムだが、既定ユーザーになってしまうと表示位置が変わってしまうので手動修正すること。
   overview1 = count<8 ? overview[0] : overview[1]
