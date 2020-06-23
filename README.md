@@ -7,7 +7,7 @@
 タイピング練習を通して英単語や英文を覚え、英語の読解力向上に繋げる為に作りました。
 
 ## URL
-[https://gametyping.herokuapp.com/](https://gametyping.herokuapp.com/)
+[http://game-typing.work/](http://game-typing.work/)
 
 ## 環境
 
@@ -19,10 +19,9 @@
   - Ruby 2.5.1
   - Rails 5.2.4.1
 - インフラ
-  - Heroku
-  - MySQL 5.5.56
-  - AWS S3
-<img src="https://user-images.githubusercontent.com/57985382/84977349-1af07180-b165-11ea-8fee-eedc7bf4d6e4.png" width="50%">
+  - AWS(EC2, VPC, ELB, RDS, Route53, S3)
+  
+<img src="https://user-images.githubusercontent.com/57985382/85371099-b53c2500-b56a-11ea-899a-ae1e6e07a054.png" width="50%">
 
 ## 機能要件
 
