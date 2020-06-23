@@ -21,7 +21,7 @@
 - インフラ
   - AWS(EC2, VPC, ELB, RDS, Route53, S3)
   
-<img src="https://user-images.githubusercontent.com/57985382/85370524-cf293800-b569-11ea-8cec-c65122c23509.png" width="50%">
+<img src="https://user-images.githubusercontent.com/57985382/85371099-b53c2500-b56a-11ea-899a-ae1e6e07a054.png" width="50%">
 
 ## 機能要件
 
