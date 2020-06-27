@@ -1,4 +1,4 @@
-## 英語学習タイピング
+## 英語学習タイピングアプリ
 
 <img src="https://user-images.githubusercontent.com/57985382/84977572-9c480400-b165-11ea-9f9b-43bf4c9a9f80.PNG" width="50%">
 
