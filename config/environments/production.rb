@@ -71,7 +71,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = [ I18n 。default_locale ]
+  config.i18n.fallbacks = [ I18n.default_locale ]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -90,7 +90,7 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.action_mailer.default_url_options = { protocol: 'https', host: 'gametyping.herokuapp.com/' }
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://game-typing.work//' }
   config.action_mailer.delivery_method = :smtp
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.smtp_settings = {
