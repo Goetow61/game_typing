@@ -13,7 +13,6 @@ class QuestionsController < ApplicationController
 
   def create
     @qfile = Qfile.new(qfile_params)
-    binding.pry
     if @qfile.save!
       redirect_to root_path
     else
