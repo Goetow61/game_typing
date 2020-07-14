@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.1"
+lock "~> 3.14.1"
 
 set :application, "game_typing"
 set :repo_url, "git@github.com:techexpert65-19894/game_typing.git"
