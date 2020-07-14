@@ -7,7 +7,7 @@
 タイピング練習を通して英単語や英文を覚え、英語の読解力向上に繋げる為に作りました。
 
 ## URL
-[http://game-typing.work/](http://game-typing.work/)
+[https://game-typing.work/](https://game-typing.work/)
 
 ## 環境
 
